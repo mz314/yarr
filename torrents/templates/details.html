@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Torrent details</h2>
+<div class="torrent-title">{{torrent.title}}</div>
+<div class="torrent-description">{{torrent.description}}</div>
+<a href="{{torrent.torrent_file}}">{{torrent.torrent_file}}</a>
+{% endblock %}

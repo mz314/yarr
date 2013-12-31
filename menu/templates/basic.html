@@ -1,0 +1,12 @@
+<div id="menu">
+{{ request.path }}
+{% for item in items %}
+ {% ifequal item.href current %}
+ <a class="menuitem active" href="{{item.href}}">
+ {% else %}
+ <a class="menuitem" href="{{item.href}}">
+{% endifequal %}
+ {{item.title}}
+ </a>
+{% endfor %}
+</div>
