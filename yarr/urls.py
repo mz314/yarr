@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^torrent/torrent_files/(.*)$','django.views.static.serve', {'document_root': 'torrent_files'}),
     url(r'^torrent/add$','torrents.views.add'),
     url(r'^torrent/(.*)$','torrents.views.details'),
+    url(r'^user/login$','userpanel.views.login'),
     
     url(r'^admin/', include(admin.site.urls)),
     

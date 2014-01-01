@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'torrents',
     'torrent_categories',
     'menu',
+    'userpanel',
    
 )
 
