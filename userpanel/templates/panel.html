@@ -1,4 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-panel
+<h2>User panel</h2>
+<ul>
+<li>Logged as - {{user.username}}</li>
+<li>Name - {{user.first_name}} {{user.last_name}}</li>
+<li>Email - {{user.email}}</li>
+</ul>
+<a href="/user/logout">Logout</a>
 {% endblock %}

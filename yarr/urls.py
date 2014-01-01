@@ -17,7 +17,8 @@ urlpatterns = patterns('',
     url(r'^torrent/add$','torrents.views.add'),
     url(r'^torrent/(.*)$','torrents.views.details'),
     url(r'^user/$','userpanel.views.panel'),
-    url(r'^user/login$','userpanel.views.login'),
+    url(r'^user/login$','userpanel.views.login_user'),
+    url(r'^user/logout$','userpanel.views.logout_user'),
     
     url(r'^admin/', include(admin.site.urls)),
     
