@@ -3,17 +3,23 @@ from django.http import HttpResponseRedirect
 from torrent_categories.models import *
 from torrents.models import *
 from torrents.forms import *
+from django.contrib.auth.decorators import login_required
 from django.template import RequestContext, loader
 
 
 
   
-
+@login_required(login_url='/user/login')
 def add(req): 
   template=loader.get_template('add.html')
   if req.method=='POST':
-   form=addForm(req.POST,req.FILES)
+   model=Torrent()
+   model.user=req.user
+   form=addForm(req.POST,req.FILES,instance=model)
+
    if form.is_valid():
+     #if form.Meta.model.user is None:
+     #form.Meta.model.user=req.user
      form.save()
      template=loader.get_template('add_ok.html')
      context=RequestContext(req, {})
