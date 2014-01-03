@@ -11,7 +11,12 @@ class Torrent(models.Model):
   approved=models.BooleanField()
   user=models.ForeignKey(User,null=True, blank=True)
   rating=models.PositiveIntegerField(null=True,blank=True)
+  rate_count=models.PositiveIntegerField(null=True,blank=True)
   
+  def search(selfs,query):
+      res=Torrent.objects.filter(title__regex=query)
+      return res
+
   def save(self):
     print self.user
     if self.approved is None:
