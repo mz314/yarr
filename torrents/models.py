@@ -1,7 +1,18 @@
 from django.db import models
-from torrent_categories.models import *
 from django.contrib.auth.models import User
 from var_dump import var_dump
+
+from django.db import models
+
+class Category(models.Model):
+  name=models.CharField(max_length=100,null=False)
+  parent_cat=models.ForeignKey('self',null=True,blank=True)
+  def __unicode__(self):
+    return self.name
+
+  #@models.permalink
+  def get_absolute_url(self):
+   return "/cat/%i" % self.id
 
 class Torrent(models.Model):
   title=models.CharField(max_length=255,null=False)
