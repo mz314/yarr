@@ -56,12 +56,12 @@ def details(req,torrent_id):
   return HttpResponse(template.render(context))
 
 def search(req):
-    results=()
+    torrents=()
     if req.method=='POST':
         form=searchForm(req.POST)
-        results=Torrent.search(Torrent(),req.POST['search'])
+        torrents=Torrent.search(Torrent(),req.POST['search'])
     else:
         form=searchForm()
     template=loader.get_template('search.html')
-    context=RequestContext(req, {'form':form,'results':results})
+    context=RequestContext(req, {'form':form,'torrents':torrents})
     return HttpResponse(template.render(context))

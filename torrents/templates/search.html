@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search</h2>
+<form action="" method="POST">
+{{form.as_p}}
+{% csrf_token %}
+<input type="submit" value="Search" />
+</form>
+{% if torrents|length  %}
+
+{% include "torrentlist.html" %}
+{% else %}
+        No results for you query.
+{% endif %}
+{% endblock %}

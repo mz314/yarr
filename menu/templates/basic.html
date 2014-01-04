@@ -1,11 +1,12 @@
 <div id="menu">
 {{ request.path }}
 {% for item in items %}
- {% ifequal item.href current %}
+
+ {% if item.active %}
  <a class="menuitem active" href="{{item.href}}">
  {% else %}
  <a class="menuitem" href="{{item.href}}">
-{% endifequal %}
+{% endif %}
  {{item.title}}
  </a>
 {% endfor %}

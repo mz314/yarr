@@ -1,0 +1,7 @@
+{% block torrentlist %}
+{% for t in torrents %}
+<div>
+  <a href="{{t.get_absolute_url}}">{{t.title}}</a>
+</div>
+{% endfor %}
+{% endblock %}

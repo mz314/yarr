@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="catlist">
+{% for cat in cats %}
+<div><a href="{{cat.get_absolute_url}}"> {{ cat.name }} </a></div>
+{% endfor %}
+</div>
+
+{% if torrents %}
+<h2>Torrents here:</h2>
+{% include "torrentlist.html" %}
+{% else %}
+No torrents in that category
+{% endif %}
+{% endblock %}
