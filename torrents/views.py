@@ -5,6 +5,7 @@ from torrents.models import *
 from torrents.forms import *
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext, loader
+from django.views.generic import TemplateView
 
 
 
@@ -65,3 +66,25 @@ def search(req):
     template=loader.get_template('search.html')
     context=RequestContext(req, {'form':form,'torrents':torrents})
     return HttpResponse(template.render(context))
+
+class ajaxView(TemplateView):
+     def post(self, request, *args, **kwargs):
+         return HttpResponse('')
+
+     def get(self, request, *args, **kwargs):
+         return self.post(request,args,kwargs)
+
+class voteView(ajaxView):
+    def post(self, request, *args, **kwargs):
+        params=None
+        if request.method=='GET':
+            params=request.GET
+        else:
+            params=request.POST
+        if 'rating' in params:
+            rating=params['rating']
+            rmodel=Rates()
+            rmodel.rate(1,request.user,5)
+        else:
+            return HttpResponse('Error')
+        return HttpResponse(rating)

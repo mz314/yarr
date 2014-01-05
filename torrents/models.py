@@ -4,6 +4,8 @@ from var_dump import var_dump
 
 from django.db import models
 
+
+
 class Category(models.Model):
   name=models.CharField(max_length=100,null=False)
   parent_cat=models.ForeignKey('self',null=True,blank=True)
@@ -21,8 +23,6 @@ class Torrent(models.Model):
   category=models.ForeignKey(Category)
   approved=models.BooleanField()
   user=models.ForeignKey(User,null=True, blank=True)
-  rating=models.PositiveIntegerField(null=True,blank=True)
-  rate_count=models.PositiveIntegerField(null=True,blank=True)
   
   def search(selfs,query):
       res=Torrent.objects.filter(title__regex=query)
@@ -42,3 +42,17 @@ class Torrent(models.Model):
   
   def get_absolute_url(self):
     return "/torrent/%i" % self.id
+
+class Comments(models.Model):
+    user=models.ForeignKey(User)
+    torrent=models.ForeignKey(Torrent)
+
+class Rates(models.Model):
+    user=models.ForeignKey(User)
+    rate=models.PositiveIntegerField()
+    torrent=models.ForeignKey(Torrent)
+    def rate(self,torrent,user,rating):
+        torrent=Torrent.objects.get(id=torrent)
+        r=Rates(user=user,torrent=torrent)
+        r.rate=rating
+        r.save()

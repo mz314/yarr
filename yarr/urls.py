@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from torrent_categories import views
+from torrents.views import *
+
 
 admin.autodiscover()
 
@@ -22,5 +24,5 @@ urlpatterns = patterns('',
     url(r'^user/login$','userpanel.views.login_user'),
     url(r'^user/logout$','userpanel.views.logout_user'),
     url(r'^admin/', include(admin.site.urls)),
-    
+    url(r'^ajax/',voteView.as_view())
 )

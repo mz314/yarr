@@ -33,7 +33,6 @@ class MenuNode(template.Node):
         items=MenuItem.objects.all()
         self.getActiveId(context,items)
         req= HttpRequest()
-
         context=Context({'menu_id':self.menu_id,'items':items,'current':context['request'].path})
         #men=Menu.objects.all()
         return template.render(context)
