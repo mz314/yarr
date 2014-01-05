@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -97,7 +97,8 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-                 'template'
+                 os.path.join(SETTINGS_PATH, 'template'),
+                 'template',
                  )
 
 # Static files (CSS, JavaScript, Images)
