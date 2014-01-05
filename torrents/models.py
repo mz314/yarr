@@ -29,7 +29,7 @@ class Torrent(models.Model):
       return res
 
   def save(self):
-    print self.user
+    #print self.user
     if self.approved is None:
       self.approved=False
     #self.user=self.user
