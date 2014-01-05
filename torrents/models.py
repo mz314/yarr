@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from var_dump import var_dump
+# from var_dump import var_dump
 
 from django.db import models
 
