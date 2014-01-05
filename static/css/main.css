@@ -1,0 +1,48 @@
+body { 
+  background-color: pink; 
+  padding: 0;
+  margin: 0;
+}
+#heading {
+ background-color: red;
+ height: 150px;
+ width: 100%; 
+ color: blue;
+ font-size: 14pt;
+ font-weight: bold;
+}
+
+#content {
+ min-height: 450px;
+  
+}
+
+#footer {
+ background: purple;
+ height: 50px;
+ color: white;
+  
+}
+
+#search {
+ width: 400px;
+ height: 100%;
+ float: right;
+ background: white;
+}
+
+div.catlist {
+ width: 100%;
+ text-align: center;
+  
+}
+
+div#logo, div#menu {float: left; clear: none}
+div#menu {margin-left: 5px;}
+
+a.menuitem { margin: 5px; text-decoration: none;}
+a.active { font-weight: bold; text-decoration: underline;}
+a.menuitem:link, a.menuitem:visited {color: white }
+
+
+
