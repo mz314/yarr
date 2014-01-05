@@ -4,7 +4,7 @@ from django.contrib import admin
 
 from torrent_categories import views
 from torrents.views import *
-
+from settings import *
 
 admin.autodiscover()
 
@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     url(r'^torrent/torrent_files/(.*)$','django.views.static.serve', {'document_root': 'torrent_files'}),
     url(r'^torrent/add$','torrents.views.add'),
     url(r'^torrent/(.*)$','torrents.views.details'),
+    url (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+     {'document_root':     '/static'}),
 
     url(r'^user/$','userpanel.views.panel'),
     url(r'^user/login$','userpanel.views.login_user'),
