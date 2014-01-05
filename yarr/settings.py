@@ -97,7 +97,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-                 os.path.join(SETTINGS_PATH, 'template'),
+                 os.path.join(BASE_DIR, 'template'),
                  'template',
                  )
 
