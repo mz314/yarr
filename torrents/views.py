@@ -18,7 +18,7 @@ def landing(req):
 
 def category(req,catid):
   template=loader.get_template('category.html')
-  if catid<>'':
+  if catid!='':
    cats=Category.objects.filter(parent_cat=catid)
    torrents=Torrent.objects.filter(category_id=catid,approved=True)
   else:
