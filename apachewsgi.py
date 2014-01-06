@@ -9,4 +9,4 @@ application = django.core.handlers.wsgi.WSGIHandler()
 
 path = '/var/www/localhost/htdocs/priv/yarr'
 if path not in sys.path:
-    sys.path.append(path)
+    sys.path.append(path) 
