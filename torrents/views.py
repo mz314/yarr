@@ -34,20 +34,20 @@ def add(req):
   if req.method=='POST':
    model=Torrent()
    model.user=req.user
-   form=addForm(req.POST,req.FILES,instance=model)
+   upload_form=addForm(req.POST,req.FILES,instance=model)
 
    if form.is_valid():
      #if form.Meta.model.user is None:
      #form.Meta.model.user=req.user
-     form.save()
+     upload_form.save()
      template=loader.get_template('add_ok.html')
      context=RequestContext(req, {})
      #TODO: handle refresh
      return HttpResponse(template.render(context))
   else:
-   form=addForm()
+   upload_form=addForm()
   
-  context=RequestContext(req, {'form':form})
+  context=RequestContext(req, {'upload_form':upload_form})
   return HttpResponse(template.render(context))
 
 def details(req,torrent_id):
