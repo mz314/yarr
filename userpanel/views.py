@@ -3,7 +3,7 @@ from django.template import RequestContext, loader
 from django.http import HttpResponse, HttpResponseRedirect
 from userpanel.forms import *
 from django.contrib.auth import authenticate, login, logout
-from var_dump import var_dump
+# from var_dump import var_dump
 from django.contrib.auth.decorators import login_required
 
 def logout_user(req):
