@@ -23,11 +23,11 @@ def login_user(req):
     return HttpResponseRedirect('/user')
    else:  
     message='Login failure'
-    form=LoginForm(req.POST)
+    login_form=LoginForm(req.POST)
   else:
    message='Please login'
-   form=LoginForm()
-  context=RequestContext(req, {'form':form,'message':message})
+   login_form=LoginForm()
+  context=RequestContext(req, {'login_form':login_form,'message':message})
   return HttpResponse(template.render(context))
 
 @login_required(login_url='/user/login')
